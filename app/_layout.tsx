@@ -1,37 +1,50 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
+//  this layout will be available in all screens of the app, like header, footer
+import { StyleSheet, Text, View } from 'react-native'
+import React from 'react'
+import { Slot, Stack } from 'expo-router'
 
-import { useColorScheme } from '@/hooks/useColorScheme';
+// const RootLayout = () => {
+//   return (
+//     <View style={styles.container}>
+//       <Text>Mohammed Audhil Jack and jill jbjb,</Text>
+//     </View>
+//   )
+// }
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
+// const styles = StyleSheet.create({
+//   container:{
+//     display: 'flex',
+//     alignItems:'center',
+//     justifyContent: 'center',
+//     flex: 1
+//   }
+// })
 
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
+//  implementing navigations
+// //  1. to render index.tsx in home screen
+// const RootLayout = () => {
+//   return <Slot />
+// }
 
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
+// //  2. to render header & footer with slot
+// const RootLayout = () => {
+//   return (
+//   <>
+//   <Text >This is Header</Text>
+//   <Slot />
+//   <Text >This is Footer</Text>
+//   </>
+//   )
+// }
 
-  if (!loaded) {
-    return null;
-  }
-
+//  3. to use stack - alternative approachl than using Slot
+const RootLayout = () => {
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-    </ThemeProvider>
-  );
+  <Stack>
+    <Stack.Screen name="index" options={{headerShown: false}}></Stack.Screen>
+  </Stack>
+  )
 }
+
+
+export default RootLayout
