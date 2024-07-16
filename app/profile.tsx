@@ -4,7 +4,7 @@ import React from 'react'
 const profile = () => {
   return (
     <View>
-      <Text>profile</Text>
+      <Text>Jack and jill went up to hill!</Text>
     </View>
   )
 }
