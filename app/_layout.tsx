@@ -1,7 +1,6 @@
 //  this layout will be available in all screens of the app, like header, footer
-import { StyleSheet, Text, View } from 'react-native'
 import React, { useEffect } from 'react'
-import { Slot, SplashScreen, Stack } from 'expo-router'
+import { SplashScreen, Stack } from 'expo-router'
 import { useFonts } from 'expo-font';
 
 // const RootLayout = () => {
@@ -61,13 +60,12 @@ const RootLayout = () => {
 
   return (
   <Stack>
-    <Stack.Screen name="index" options={{headerShown: false}}></Stack.Screen>
+    <Stack.Screen name="index" options={{headerShown: false}} />
   </Stack>
   )
 }
 
 //  it'll prevent splash screen to get hide before assets are loaded
 SplashScreen.preventAutoHideAsync();
-
 
 export default RootLayout

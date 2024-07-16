@@ -11,7 +11,7 @@ const RootLayout = () => {
       <Text className='text-3xl font-pblack'>Aora!
       </Text>
       <StatusBar style='auto'/>
-      <Link href="/profile" style={{color: 'red'}}>Go to profile</Link>
+      <Link href="/home" style={{color: 'red'}}>Go to Home</Link>
     </View>
   )
 
