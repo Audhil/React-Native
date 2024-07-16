@@ -8,7 +8,7 @@ import { Link } from 'expo-router'
 const RootLayout = () => {
   return (
     <View className="flex-1 items-center justify-center bg-white">
-      <Text>Index.jsx Mohammed Audhil checking
+      <Text className='text-3xl'>Aora!
       </Text>
       <StatusBar style='auto'/>
       <Link href="/profile" style={{color: 'red'}}>Go to profile</Link>
