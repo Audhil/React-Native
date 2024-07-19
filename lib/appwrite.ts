@@ -21,16 +21,16 @@ const account = new Account(client);
 const avatars = new Avatars(client);
 const databases = new Databases(client);
 
-export const createUser = async (email, password, userName) => {
+export const createUser = async (email, password, username) => {
   try {
     const newAccount = await account.create(
       ID.unique(),
       email,
       password,
-      userName
+      username
     );
     if (!newAccount) throw Error;
-    const avatarUrl = avatars.getInitials(userName);
+    const avatarUrl = avatars.getInitials(username);
 
     await signIn(email, password);
 
@@ -41,7 +41,7 @@ export const createUser = async (email, password, userName) => {
       {
         accountId: newAccount.$id,
         email,
-        userName,
+        username,
         avatar: avatarUrl,
       }
     );

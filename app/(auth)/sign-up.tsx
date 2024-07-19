@@ -10,7 +10,7 @@ import { createUser } from '@/lib/appwrite';
 
 const SignUp = () => {
   const [form, setForm] = useState({
-    userName: '',
+    username: '',
     email: '',
     password: '',
   });
@@ -19,12 +19,12 @@ const SignUp = () => {
 
   const submit = async () => {
     // createUser();
-    if (!form.userName || !form.email || !form.password) {
+    if (!form.username || !form.email || !form.password) {
       Alert.alert('Error', 'Please fill in all the fields');
     }
     setisSubmitting(true);
     try {
-      const result = await createUser(form.email, form.password, form.userName);
+      const result = await createUser(form.email, form.password, form.username);
 
       //  set it to global state...
 
@@ -51,8 +51,8 @@ const SignUp = () => {
 
           <FormField
             title="Username"
-            value={form.userName}
-            handleChangeText={(e) => setForm({ ...form, userName: e })}
+            value={form.username}
+            handleChangeText={(e) => setForm({ ...form, username: e })}
             otherStyles="mt-10"
           />
 
